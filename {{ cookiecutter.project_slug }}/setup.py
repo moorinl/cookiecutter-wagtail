@@ -13,6 +13,9 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     classifier=[
-        'Private :: Do Not Upload'
+        'Environment :: Web Environment',
+        'Framework :: Django',
+        'Operating System :: Unix',
+        'Programming Language :: Python',
     ],
 )

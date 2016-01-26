@@ -1,0 +1,17 @@
+# OS X files
+.DS_Store
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+env/
+lib/
+sdist/
+*.egg-info/
+*.egg
+
+# Translations
+*.mo
+*.po

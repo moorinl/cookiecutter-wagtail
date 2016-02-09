@@ -8,6 +8,7 @@ install_requires = [
 tests_require = [
     'flake8',
     'pytest',
+    'pytest-django',
     'tox'
 ]
 

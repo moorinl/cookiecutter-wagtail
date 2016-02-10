@@ -24,6 +24,7 @@ sdist/
 # Unit test / coverage reports
 .cache/
 .tox/
+.coverage
 coverage.xml
 
 # Django stuff

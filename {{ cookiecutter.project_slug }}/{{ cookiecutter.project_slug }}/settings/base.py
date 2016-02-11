@@ -21,6 +21,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'wagtail.wagtailforms',
+    'wagtail.wagtailredirects',
+    'wagtail.wagtailembeds',
+    'wagtail.wagtailsites',
+    'wagtail.wagtailusers',
+    'wagtail.wagtailsnippets',
+    'wagtail.wagtaildocs',
+    'wagtail.wagtailimages',
+    'wagtail.wagtailsearch',
+    'wagtail.wagtailadmin',
+    'wagtail.wagtailcore',
+
+    'wagtail.contrib.settings',
+    'wagtail.contrib.wagtailsitemaps',
+    
+
+    'modelcluster',
+    'compressor',
+    'taggit',
 ]
 
 LANGUAGE_CODE = 'en-us'
@@ -37,6 +57,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'wagtail.wagtailcore.middleware.SiteMiddleware',
+    'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = '{{ cookiecutter.project_slug }}.urls'
@@ -67,5 +89,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
+WAGTAIL_SITE_NAME = '{{ cookiecutter.project_name }}'
 
 WSGI_APPLICATION = '{{ cookiecutter.project_slug }}.wsgi.application'

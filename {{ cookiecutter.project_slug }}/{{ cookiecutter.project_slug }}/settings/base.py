@@ -35,8 +35,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailcore',
 
     'wagtail.contrib.settings',
-    'wagtail.contrib.wagtailsitemaps',
-    
+    'wagtail.contrib.wagtailsitemaps',    
 
     'modelcluster',
     'compressor',

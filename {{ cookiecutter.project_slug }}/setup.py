@@ -2,7 +2,11 @@ from setuptools import find_packages, setup
 
 
 install_requires = [
-    'django>=1.9,<1.10'
+    'django>=1.8,<1.10'
+]
+
+docs_require = [
+    'sphinx'
 ]
 
 tests_require = [
@@ -17,10 +21,12 @@ setup(
     name='{{ cookiecutter.project_slug }}',
     version='{{ cookiecutter.version }}',
     description='{{ cookiecutter.project_short_description }}',
+    author='{{ cookiecutter.full_name }}',
+    author_email='{{ cookiecutter.email }}',
     install_requires=install_requires,
-    tests_require=tests_require,
     extras_require={
-        'test': tests_require
+        'docs': docs_require,
+        'test': test_require
     },
     scripts=[
         'manage.py'

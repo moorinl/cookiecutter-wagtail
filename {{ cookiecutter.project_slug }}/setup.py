@@ -9,7 +9,7 @@ docs_require = [
     'sphinx'
 ]
 
-tests_require = [
+test_require = [
     'flake8',
     'pytest',
     'pytest-cov',

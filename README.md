@@ -1,6 +1,6 @@
-# Cookiecutter Django
+# Cookiecutter Django Wagtail
 
-A Cookiecutter template for Django and Django Wagtail.
+A Cookiecutter template for Django Wagtail.
 
 ## Usage
 
@@ -8,8 +8,6 @@ Install cookiecutter with pip.
 
     pip install cookiecutter
 
-Run the cookiecutter command with the git url and choose (optionally) a branch
-if you want a Django Wagtail project.
+Run the cookiecutter command:
 
-    cookiecutter gh:moorinteractive/coockiecutter-django
-    cookiecutter gh:moorinteractive/coockiecutter-django --checkout wagtail
+    cookiecutter gh:moorinteractive/coockiecutter-wagtail

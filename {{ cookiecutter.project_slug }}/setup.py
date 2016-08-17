@@ -2,8 +2,8 @@ from setuptools import find_packages, setup
 
 
 install_requires = [
-    'django>=1.8,<1.10',
-    'wagtail>=1.3,<1.4'
+    'django>=1.10,<1.11',
+    'wagtail>=1.6,<1.7'
 ]
 
 docs_require = [

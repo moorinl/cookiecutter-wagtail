@@ -35,12 +35,9 @@ INSTALLED_APPS = [
     'wagtail.wagtailcore',
 
     'wagtail.contrib.settings',
-    {%- if cookiecutter.generate_sitemap == 'yes' %}
     'wagtail.contrib.wagtailsitemaps',
-    {%- endif %}
 
     'modelcluster',
-    'compressor',
     'taggit',
 ]
 

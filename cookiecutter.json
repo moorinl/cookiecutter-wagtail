@@ -5,6 +5,5 @@
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
     "project_stripped_name": "{{ cookiecutter.project_name.replace(' ', '') }}",
     "project_short_description": "My application short description.",
-    "version": "0.1.0",
-    "generate_sitemap": ["yes", "no"]
+    "version": "0.1.0"
 }

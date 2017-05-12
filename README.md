@@ -11,3 +11,7 @@ Install cookiecutter with pip.
 Run the cookiecutter command:
 
     cookiecutter gh:moorinteractive/coockiecutter-wagtail
+
+## Features
+
+T.b.d.

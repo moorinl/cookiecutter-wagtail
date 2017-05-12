@@ -9,9 +9,7 @@ flake8:
 	flake8 --exclude=migrations,tests src
 
 install:
-	pip install .
-	pip install -e .[docs]
-	pip install -e .[test]
+	pip install -e .[docs,test]
 
 isort:
 	isort --recursive --check-only --diff src tests

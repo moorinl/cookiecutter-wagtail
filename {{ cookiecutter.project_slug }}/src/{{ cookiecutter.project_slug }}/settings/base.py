@@ -1,18 +1,23 @@
 import os
 
+import environ
+
+env = environ.Env()
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
-ALLOWED_HOSTS = []
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+CACHES = {
+    'default': env.cache(default='dummycache://'),
 }
 
-DEBUG = True
+DATABASES = {
+    'default': env.db_url(default='postgres://localhost/application'),
+}
+
+DEBUG = env.bool('DEBUG', default=False)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -22,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'wagtail.api.v2',
     'wagtail.wagtailforms',
     'wagtail.wagtailredirects',
     'wagtail.wagtailembeds',
@@ -34,17 +40,23 @@ INSTALLED_APPS = [
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
 
+    'wagtail.contrib.modeladmin',
     'wagtail.contrib.settings',
     'wagtail.contrib.wagtailsitemaps',
 
     'modelcluster',
+    'rest_framework',
     'taggit',
+
+    'wagtailthemes',
 ]
 
-LANGUAGE_CODE = 'en-us'
+INTERNAL_IPS = env.list('INTERNAL_IPS', default=['127.0.0.1'])
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+LANGUAGE_CODE = env.str('LANGUAGE_CODE', default='en-us')
+
+MEDIA_URL = env.str('MEDIA_URL', default='/media/')
+MEDIA_ROOT = env.str('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'media'))
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,18 +71,19 @@ MIDDLEWARE_CLASSES = [
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
 ]
 
-ROOT_URLCONF = '{{ cookiecutter.project_slug }}.urls'
+ROOT_URLCONF = env.str('ROOT_URLCONF', default='{{ cookiecutter.project_slug }}.urls')
 
-SECRET_KEY = '7b&ova34-9b(dj$gevm65$lc!m3#^#g1z*v#gv-g8k0wlo7#l8'
+SECRET_KEY = env.str('SECRET_KEY', default='')
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = env.str('STATIC_URL', default='/static/')
+STATIC_ROOT = env.str('STATIC_ROOT', default=os.path.join(BASE_DIR, 'static'))
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -78,16 +91,21 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'loaders': [
+                'wagtailthemes.loaders.ThemeLoader',
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ]
         },
     },
 ]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = env.str('TIME_ZONE', default='UTC')
 
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
+USE_I18N = env.bool('USE_I18N', default=True)
+USE_L10N = env.bool('USE_L10N', default=True)
+USE_TZ = env.bool('USE_TZ', default=True)
 
-WAGTAIL_SITE_NAME = '{{ cookiecutter.project_name }}'
+WAGTAIL_SITE_NAME = env.str('WAGTAIL_SITE_NAME', default='{{ cookiecutter.project_name }}')
 
-WSGI_APPLICATION = '{{ cookiecutter.project_slug }}.wsgi.application'
+WSGI_APPLICATION = env.str('WSGI_APPLICATION', default='{{ cookiecutter.project_slug }}.wsgi.application')

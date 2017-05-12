@@ -2,8 +2,9 @@ from setuptools import find_packages, setup
 
 
 install_requires = [
-    'django>=1.10',
-    'wagtail>=1.8'
+    'django==1.11.1',
+    'django-environ==0.4.1',
+    'wagtail==1.10'
 ]
 
 docs_require = [
@@ -36,7 +37,7 @@ setup(
     package_dir={'': 'src'},
     packages=find_packages('src'),
     include_package_data=True,
-    classifier=[
+    classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
         'Operating System :: Unix',

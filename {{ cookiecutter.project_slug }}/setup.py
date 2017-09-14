@@ -2,22 +2,23 @@ from setuptools import find_packages, setup
 
 
 install_requires = [
-    'django==1.11.1',
-    'django-environ==0.4.1',
-    'wagtail==1.10'
+    'django==1.11.5',
+    'django-environ==0.4.4',
+    'wagtail==1.12.1',
+    'whitenoise==3.3.0',
 ]
 
 docs_require = [
-    'sphinx==1.4.5'
+    'sphinx',
 ]
 
 test_require = [
-    'flake8==3.0.4',
-    'isort==4.2.5',
-    'pytest==2.9.2',
-    'pytest-cov==2.3.1',
-    'pytest-django==2.9.1',
-    'tox==2.3.1'
+    'flake8',
+    'isort',
+    'pytest',
+    'pytest-cov',
+    'pytest-django',
+    'tox',
 ]
 
 setup(
